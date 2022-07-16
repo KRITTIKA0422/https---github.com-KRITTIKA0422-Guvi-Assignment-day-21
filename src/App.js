@@ -1,36 +1,68 @@
 
 import "./App.css";
-import {useState} from "react";
-import { useEffect } from 'react';
+
 
 
 // App - component
-function App() {
-  const[mobiles,setMobiles]=useState({});
-  useEffect(()=>{
-    fetch(`http://localhost:4000/mobiles`,{
-      method:"GET",
-    })
-    .then((data)=>data.json())
-    .then((m)=>setMobiles (m));
-  },[]);
-  
+export default function App() {
   return (
     <div className="App">
-   <div className="phones-container">{mobiles.map((m)=>(<Phone mobile ={m}/>))}</div>
-   <Phone/>
-    </div>
+   
+  <div className="container">
+            <h5 className="card-title">Free</h5>
+            <h6 className="card-price">$0<span className="period">/month</span></h6>
+            <ul className="fa-ul" type="none">
+              <li><strong>&#x2714; </strong>Single User</li>
+              <li><strong>&#x2714; </strong>5GB Storage</li>
+              <li><strong>&#x2714; </strong>Unlimited Public Projects</li>
+              <li><strong>&#x2714; </strong>Community Access</li>
+              <li className="text-muted"><strong>&#10006; </strong>Unlimited
+                Private Projects</li>
+              <li className="text-muted"><strong>&#10006; </strong>Dedicated
+                Phone Support</li>
+              <li className="text-muted"><strong>&#10006; </strong>Free Subdomain
+              </li>
+              <li className="text-muted"><strong>&#10006; </strong>Monthly Status
+                Reports</li>
+            </ul>
+            <div><button className="btn1">Button</button></div>
+            </div>
+       
+            <div className="container">
+            <h5 className="card-title">Plus</h5>
+            <h6 className="card-price">$9<span class="period">/month</span></h6>
+            <ul className="fa-ul" type="none">
+              <li><strong>&#x2714; </strong><strong>5 Users</strong></li>
+              <li><strong>&#x2714; </strong>50GB Storage</li>
+              <li><strong>&#x2714; </strong>Unlimited Public Projects</li>
+              <li><strong>&#x2714; </strong>Community Access</li>
+              <li><strong>&#x2714; </strong>Unlimited Private Projects</li>
+              <li><strong>&#x2714; </strong>Dedicated Phone Support</li>
+              <li><strong>&#x2714; </strong>Free Subdomain</li>
+              <li className="text-muted"><strong>&#10006; </strong>Monthly Status
+                Reports</li>
+                </ul>
+
+              <div><button className="btn1">Button</button></div>
+            </div>
+        
+            <div className="container">
+            <h5 className="card-title">Pro</h5>
+            <h6 className="card-price">$49<span class="period">/month</span></h6>
+            <ul className="fa-ul" type="none">
+              <li><strong>&#x2714; </strong><strong>Unlimited Users</strong>
+              </li>
+              <li><strong>&#x2714; </strong>150GB Storage</li>
+              <li><strong>&#x2714; </strong>Unlimited Public Projects</li>
+              <li><strong>&#x2714; </strong>Community Access</li>
+              <li><strong>&#x2714; </strong>Unlimited Private Projects</li>
+              <li><strong>&#x2714; </strong>Dedicated Phone Support</li>
+              <li><strong>&#x2714; </strong><strong>Unlimited</strong> Free
+                Subdomains</li>
+              <li><strong>&#x2714; </strong>Monthly Status Reports</li>
+            </ul>
+              <div><button className="btn1">Button</button></div>
+            </div>
+            </div>
 );
 }
-function Phone({mobile}){
-  
-  return(
-    <div className="phone-container">
-      <img className="phone-picture" src={mobile.img} alt={mobile.model}/>
-      <h2 className ="phone-name">{mobile.model}</h2>
-      <p className="phone-company">{mobile.company}</p>
-      </div>
-  );
-}
-export default App;
-     
